@@ -1,7 +1,7 @@
-import getWeatherAPI from "../api/getWeatherAPI.js";
-import getLocationInfo from "../api/getLocationInfo.js";
-import getLocationListAPI from "../api/getLocationListAPI.js";
-import getLocationAPI from "../api/getLocationAPI.js";
+import getWeatherAPI from "../services/getWeatherAPI.js";
+import getLocationInfo from "../services/getLocationInfo.js";
+import getLocationListAPI from "../services/getLocationListAPI.js";
+import getLocationAPI from "../services/getLocationAPI.js";
 import cloudConditionChecker from "../utils/cloudConditionChecker.js";
 import cloudConditionIcons from "../utils/cloudConditionIcons.js";
 import hourlyForecastCard from "../components/hourlyForecastCard.js";
@@ -9,7 +9,7 @@ import formatLocationName from "../utils/formatLocationName.js";
 import covertCelsiusToFarenheit from "../utils/convertCelsiusToFarenheit.js";
 import updateUVGauge from "../components/updateUvGauge.js";
 import updateSunTracker from "../components/updateSunTracker.js";
-import getAirQualityAPI from "../api/getAirQualityAPI.js";
+import getAirQualityAPI from "../services/getAirQualityAPI.js";
 import updateAirQuality from "../components/updateAirQuality.js";
 import render7DayForecast from "../components/render7DayForecast.js";
 
