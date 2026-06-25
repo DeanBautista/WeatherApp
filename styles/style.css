@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-style: normal;
+}
+
+.wrapper {
+  min-height: 100vh;
+  background: radial-gradient(ellipse 120% 80% at 30% -10%, #1e3fa8 0%, transparent 60%),
+              radial-gradient(ellipse 80% 60% at 80% 110%, #0e2255 0%, transparent 55%),
+              linear-gradient(180deg, #040c24 0%, #0a1540 40%, #0d1e52 100%);
+}

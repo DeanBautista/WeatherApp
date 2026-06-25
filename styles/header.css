@@ -1,0 +1,144 @@
+.wrapper {
+    padding: 15px;
+
+}
+
+header {
+    max-width: 1500px;
+    margin: 0 auto 20px auto;
+}
+
+header > div > h1 {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+header > div > h1 > span {
+    color: #4f8ef7;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.searchWrapper {
+    position: relative;
+    width: 100%;
+    border: 0.5px solid #D3D3D3;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 0 6px;
+    z-index: 2;
+    
+    background: rgba(255,255,255,0.07);
+}
+
+.searchWrapper > .search-result {
+    position: absolute;
+    top: 47px; 
+    left: 0;
+    display: none;
+    gap: 5px;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.searchWrapper > .search-result > li {
+    list-style: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.searchWrapper > .search-result > li:hover {
+    cursor: pointer;
+}
+
+.searchWrapper > .search-result > li:hover {
+
+}
+
+.searchInput {
+    background: transparent;
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.searchIcon {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 22px;
+    height: 22px;
+    background-image: url('../assets/search-interface-symbol.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.searchWrapper > button {
+    padding: 8px 17px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    background-color: #4f8ef7;
+}
+
+.unitToggle {
+    display: flex;
+    margin-top: 15px;
+    border-radius: 50px;
+    padding: 3px;
+    border: 1px solid #D3D3D3;
+    max-width: fit-content;
+    gap: 5px;
+    background: rgba(255,255,255,0.07);
+}
+
+.unitToggleInline {
+    display: none;
+    border-radius: 50px;
+    padding: 3px;
+    border: 1px solid #D3D3D3;
+    max-width: fit-content;
+    gap: 5px;
+    background: rgba(255,255,255,0.07);
+}
+
+.unitToggle > button,
+.unitToggleInline > button
+ {
+    flex: 1;
+    padding: 6px 17px;
+    border-radius: 50px;
+    border: none;
+    color: white;
+    background: transparent;
+}
+
+.unitToggle > .active,
+.unitToggleInline > .active
+ {
+    background-color: #4f8ef7;
+ }
+
+@media (min-width: 509px) {
+    .unitToggleInline {
+        display: flex;
+    }
+
+    .unitToggle {
+        display: none;
+    }
+}

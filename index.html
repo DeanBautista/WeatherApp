@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- title -->
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div>
+                <h1>ATM<span>O</span>S</h1>
+                <div class="searchWrapper">
+                    <div class="searchIcon"></div>
+                    <input type="text" placeholder="Search city or locations..." class="searchInput"/>
+                    <button id="search-btn">Search</button>
+                    <ul class="search-result"></ul>
+                </div>
+                <div class="unitToggleInline">
+                    <button class="celsius active">°C</button>
+                    <button class="farenheit">°F</button>
+                </div>
+            </div>
+            <div class="unitToggle">
+                <button class="celsius active">°C</button>
+                <button class="farenheit">°F</button>
+            </div>
+        </header>
+        <main>
+            <div class="weather-metadatas-container">
+                <!-- hero section and hourly forecast -->
+                <div class="hero-section-and-hourly-forecast">
+                    <section class="hero">
+                        <div class="weather-location">
+                            <span>📍</span>
+                            <span class="location-region">-- &nbsp;- &nbsp;NOW</span>
+                            <h2 class="location-city">--</h2>
+                        </div>
+                        <div class="temperature-and-cloud-condition">
+                            <div class="temperature">
+                                <span class="temperature-value">--</span>
+                                <span class="temperature-unit">°C</span>
+                            </div>
+                            <div class="cloud-condition">
+                                <span class="weather-icon">--</span>
+                                <span class="cloud-condition-name">--</span>
+                                <span class="feels-like">Feels like --°</span>
+                            </div>
+                        </div>
+                        <div class="hero-divider"></div>
+                        <div class="hero-metadata">
+                            <div class="humidity">
+                                <span class="metadata-icon">💧</span>
+                                <span class="metadata-name">Humidity</span>
+                                <span class="metadata-value">--%</span>
+                            </div>
+                            <div class="wind-speed">
+                                <span class="metadata-icon">💨</span>
+                                <span class="metadata-name">Wind Speed</span>
+                                <span class="metadata-value">-- km/h</span>
+                            </div>
+                            <div class="visibility">
+                                <span class="metadata-icon">👁️</span>
+                                <span class="metadata-name">Visibility</span>
+                                <span class="metadata-value">-- km</span>
+                            </div>
+                            <div class="pressure">
+                                <span class="metadata-icon">🌡️</span>
+                                <span class="metadata-name">Pressure</span>
+                                <span class="metadata-value">-- hPa</span>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="hourly-forecast">
+                        <div class="hourly-forecast-header">
+                            <h3>HOURLY FORECAST</h3>
+                        </div>
+                        <div class="forecast-cards"></div>
+                    </section>
+                </div>
+                <!-- uv index, sun tracker and air quality -->
+                <div class="weather-metadatas-container-2">
+                    <section class="uv-index-container">
+                        <span>☀️ UV INDEX</span>
+                        <div class="uv-gauge-container">
+                            <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg"
+                                width="100%" preserveAspectRatio="xMidYMid meet"
+                                class="uv-gauge" aria-label="UV Index gauge">
+                                <defs>
+                                    <linearGradient id="uvGrad" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+                                        <stop offset="0%"   stop-color="#4CAF7D"/>
+                                        <stop offset="35%"  stop-color="#C8D44A"/>
+                                        <stop offset="65%"  stop-color="#F5A623"/>
+                                        <stop offset="100%" stop-color="#E84040"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Gray max track -->
+                                <path d="M 22 104 A 78 78 0 0 1 178 104"
+                                    fill="none" stroke="#3a3f5a" stroke-width="10" stroke-linecap="round"/>
+                                <!-- Active arc starts at zero (dot at leftmost point) -->
+                                <path class="uv-active-arc" d="M 22 104 A 78 78 0 0 1 22 104"
+                                    fill="none" stroke="url(#uvGrad)" stroke-width="10" stroke-linecap="round"/>
+                                <circle class="uv-dot" cx="22" cy="104" r="6" fill="#F5C842" stroke="#1a2030" stroke-width="2"/>
+                                <!-- Value label -->
+                                <text id="uv-value" x="100" y="88" text-anchor="middle" font-size="26" font-weight="700" fill="#F5C842">--</text>
+                                <text id="uv-max"   x="100" y="100" text-anchor="middle" font-size="8" fill="#8892aa" letter-spacing="1">of 11</text>
+                            </svg>
+                        </div>
+                    </section>
+                    <section class="sun-tracker-container">
+                        <span>☀️ SUN TRACKER</span>
+                        <div class="sun-tracker-body">
+                            <div class="sun-times">
+                                <div class="sun-time-block">
+                                    <span id="sunrise-time" class="sun-time-value">--:--</span>
+                                    <span class="sun-time-label">SUNRISE</span>
+                                </div>
+                                <div class="sun-arrow">→</div>
+                                <div class="sun-time-block right">
+                                    <span id="sunset-time" class="sun-time-value">--:--</span>
+                                    <span class="sun-time-label">SUNSET</span>
+                                </div>
+                            </div>
+                            <div class="sun-arc-wrapper">
+                                <svg id="sun-tracker-svg" viewBox="0 0 320 130"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="100%" preserveAspectRatio="xMidYMid meet">
+                                    <defs>
+                                        <filter id="sunGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                                            <feMerge>
+                                                <feMergeNode in="blur"/>
+                                                <feMergeNode in="SourceGraphic"/>
+                                            </feMerge>
+                                        </filter>
+                                    </defs>
+                                    <path id="sun-track-full"
+                                        d="M 20 110 Q 160 -10 300 110"
+                                        fill="none" stroke="#ffffff18" stroke-width="2"
+                                        stroke-dasharray="4 5" stroke-linecap="round"/>
+                                    <path id="sun-track-elapsed"
+                                        d="M 20 110 Q 160 -10 300 110"
+                                        fill="none" stroke="#E8923A" stroke-width="2.5"
+                                        stroke-linecap="round"
+                                        pathLength="1" stroke-dasharray="0 1"/>
+                                    <circle id="sun-dot-glow" cx="20" cy="110" r="10"
+                                            fill="#F5C842" filter="url(#sunGlow)"/>
+                                    <circle id="sun-dot" cx="20" cy="110" r="7"
+                                            fill="#F5C84200" stroke="#FFE08A00" stroke-width="2"/>
+                                    <text x="20" y="126" fill="#6b7db3"
+                                        font-size="10" font-family="inherit" text-anchor="middle">AM</text>
+                                    <text x="300" y="126" fill="#6b7db3"
+                                        font-size="10" font-family="inherit" text-anchor="middle">PM</text>
+                                </svg>
+                            </div>
+                            <div class="daylight-duration">
+                                <span id="daylight-label">Daylight · --h --m</span>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="air-quality-container">
+                        <span>🍃 AIR QUALITY</span>
+                        <div class="aqi-body">
+                            <div class="aqi-score">
+                                <span id="aqi-value" class="aqi-number">--</span>
+                                <span id="aqi-label" class="aqi-level">--</span>
+                            </div>
+                            <div class="aqi-slider-track">
+                                <div class="aqi-slider-bar"></div>
+                                <div id="aqi-dot" class="aqi-slider-dot" style="left: -8px"></div>
+                                <div class="aqi-slider-labels">
+                                    <span>Good</span>
+                                    <span>Mod</span>
+                                    <span>Poor</span>
+                                </div>
+                            </div>
+                            <div class="aqi-pollutants">
+                                <div class="aqi-pollutant">
+                                    <span class="aqi-pollutant-name">PM2.5</span>
+                                    <span class="aqi-pollutant-value"><span id="aqi-pm25">--</span> μg/m³</span>
+                                </div>
+                                <div class="aqi-pollutant">
+                                    <span class="aqi-pollutant-name">PM10</span>
+                                    <span class="aqi-pollutant-value"><span id="aqi-pm10">--</span> μg/m³</span>
+                                </div>
+                                <div class="aqi-pollutant">
+                                    <span class="aqi-pollutant-name">O₃</span>
+                                    <span class="aqi-pollutant-value"><span id="aqi-ozone">--</span> ppb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- 7 day forecast -->
+            <section class="seven-day-forecast-container">
+                <span class="seven-day-title">7-DAY FORECAST</span>
+                <div class="seven-day-forecast-list"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./scripts/main.js" type="module" defer></script>
+</body>
+</html>
