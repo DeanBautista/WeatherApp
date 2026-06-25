@@ -225,35 +225,37 @@ function getUserCoords() {
 }
 
 async function getInfoOnPageLoad(fullDate, hour) {
+    console.log("1. getInfoOnPageLoad started");
+
+    const coords = await getUserCoords();
+    console.log("2. coords result:", coords);
 
     let latitude, longitude;
-
-    // 1. Try geolocation first (most accurate)
-    const coords = await getUserCoords();
 
     if (coords) {
         latitude = coords.latitude;
         longitude = coords.longitude;
-        console.log("Using geolocation coords:", latitude, longitude);
     } else {
-        // 2. Fall back to IP-based location (works on Vercel unlike ipapi.co)
         try {
+            console.log("3. trying ipwho.is...");
             const ipData = await fetch("https://ipwho.is/").then(r => r.json());
+            console.log("4. ipwho.is result:", ipData);
             latitude = ipData.latitude;
             longitude = ipData.longitude;
-            console.log("Using IP-based coords:", latitude, longitude);
         } catch (err) {
-            // 3. Last resort: hardcoded default (Manila, PH)
-            console.error("IP geolocation also failed, using default coords:", err);
+            console.error("5. ipwho.is failed:", err);
             latitude = 14.5995;
             longitude = 120.9842;
         }
     }
 
-    const weatherData = await getWeatherAPI(latitude, longitude)
-    console.log('weather data: ', weatherData)
+    console.log("6. final coords:", latitude, longitude);
 
-    const locationInfo = await getLocationAPI(null, latitude, longitude)
+    const weatherData = await getWeatherAPI(latitude, longitude);
+    console.log("7. weatherData:", weatherData);
+
+    const locationInfo = await getLocationAPI(null, latitude, longitude);
+    console.log("8. locationInfo:", locationInfo);
     console.log('latitude info in getInfoOnPageLoad: ', latitude)
     console.log('longitude info in getInfoOnPageLoad: ', longitude)
     console.log('location info in getInfoOnPageLoad: ', locationInfo)
